@@ -13,21 +13,19 @@ public class VMwareDetect
     public bool isVMware(){
     
         string[] KNOWN_SERVICES = { "VMTools", "Vmhgfs", "vm3dservice", "Vmmouse", "Vmrawdsk", "Vmusbmouse", "Vmvss", "Vmscsi", "Vmxnet", "vmx_svga", "Vmware Tools", "Vmware Physical Disk Helper Service" };
-        
         List<string>? serviceOutput = await Utils.RunPowershellCommand("get-service", null, "Name");
-            if (serviceOutput != null)
-            {
-                foreach(string service in KNOWN_SERVICES)
-                {
-                    foreach (string s in serviceOutput)
-                    {
+        
+            if (serviceOutput != null){
+                
+                foreach(string service in KNOWN_SERVICES){
+                    
+                    foreach (string s in serviceOutput){
+                        
                         if (string.Compare(s.ToLower(), service.ToLower()) == 0)
                             return true;
                     }
                 }
-                
           return false;
-            
         }
 
     
