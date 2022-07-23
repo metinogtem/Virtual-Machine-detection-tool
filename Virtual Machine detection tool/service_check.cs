@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 public class VMwareDetect
 {
     
-    public async Task<bool> isVMware(){
+    public bool isVMware(){
     
         string[] KNOWN_SERVICES = { "VMTools", "Vmhgfs", "vm3dservice", "Vmmouse", "Vmrawdsk", "Vmusbmouse", "Vmvss", "Vmscsi", "Vmxnet", "vmx_svga", "Vmware Tools", "Vmware Physical Disk Helper Service" };
         
